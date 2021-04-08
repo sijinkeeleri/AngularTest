@@ -1,0 +1,55 @@
+<section class="u-align-center u-clearfix u-section-1" id="carousel_bedf">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h1 class="u-custom-font u-font-source-sans-pro u-text u-text-palette-5-dark-2 u-text-1">Launches By SpaceX</h1>
+      <p class="u-text u-text-2"></p>
+      <a  routerLink="/header"  >Header</a>
+      <form id="SPXsearch">
+        <div class="row">
+          <div class="col form-group">
+            <input type="tel" class="form-control" name="launchYear" (blur)="getValue($event.target)" placeholder="Launch Year" [(ngModel)]="launchYear" >
+          </div>
+          <div class="col form-check">
+            <label for="launchSuccess">Launch Success</label>
+            <input type="Checkbox" [(ngModel)]="launchSuccess" name="launchSuccess" (change)="getValue($event.target)" class="form-check-input position-static" >
+          </div>
+          <div class="col form-check">
+            <label for="landSuccess">Land Success</label>
+            <input type="Checkbox" [(ngModel)]="landSuccess" name="landSuccess" (change)="getValue($event.target)" class="form-check-input position-static" >
+          </div>
+        </div>
+      </form>
+      <div class="u-expanded-width u-table u-table-responsive u-table-1">
+        <table class="u-table-entity u-table-entity-1">
+          <colgroup>
+            <col width="23.7%">
+            <col width="26.1%">
+            <col width="25.2%">
+            <col width="25%">
+          </colgroup>
+          <thead class="u-align-center u-table-header u-table-header-1">
+            <tr style="height: 57px;">
+              <th class="u-align-left u-border-5 u-border-white u-grey-5 u-table-cell u-table-cell-1">Flight Number & Launch Date</th>
+              <th class="u-border-5 u-border-white u-palette-5-dark-2 u-table-cell u-table-cell-2"><b>Launch Site</b>
+                <br>
+              </th>
+              <th class="u-border-5 u-border-white u-palette-3-base u-table-cell u-table-cell-3"><b>Details</b>
+              </th>
+              <th class="u-border-5 u-border-white u-palette-1-base u-table-cell u-table-cell-4"><b>Rocket</b>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="u-align-center u-table-body u-table-body-1">
+            <tr [ngClass]="{'sno': nodata == false}">
+              NO Data found
+            </tr>
+            <tr style="height: 81px;" *ngFor='let item of spaceXData' [ngClass]="{'sno':  noData == true}" >
+              <td class="u-align-left u-border-3 u-border-white u-table-cell">{{item.flight_number}} & {{ item.launch_date_utc }}</td>
+              <td class="u-border-3 u-border-white u-table-cell u-text-palette-5-dark-1 u-table-cell-6">{{ item.launch_site.site_name_long }}</td>
+              <td class="u-border-3 u-border-white u-palette-5-light-3 u-table-cell u-text-palette-3-base u-table-cell-7">{{ item.details }}</td>
+              <td class="u-border-3 u-border-white u-table-cell u-text-palette-1-base u-table-cell-8">{{ item.rocket.rocket_name }}</td>
+            </tr>  
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
