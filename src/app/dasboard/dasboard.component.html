@@ -42,7 +42,7 @@
             <tr [ngClass]="{'sno': nodata == false}">
               NO Data found
             </tr>
-            <tr style="height: 81px;" *ngFor='let item of spaceXData' [ngClass]="{'sno':  noData == true}" >
+            <tr style="height: 81px;" *ngFor='let item of spaceXData' [ngClass]="{'sno':  nodata == true}" >
               <td class="u-align-left u-border-3 u-border-white u-table-cell">{{item.flight_number}} & {{ item.launch_date_utc }}</td>
               <td class="u-border-3 u-border-white u-table-cell u-text-palette-5-dark-1 u-table-cell-6">{{ item.launch_site.site_name_long }}</td>
               <td class="u-border-3 u-border-white u-palette-5-light-3 u-table-cell u-text-palette-3-base u-table-cell-7">{{ item.details }}</td>
